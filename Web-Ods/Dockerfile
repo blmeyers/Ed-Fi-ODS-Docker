@@ -10,6 +10,7 @@ ENV VERSION="5.1.0-b13218"
 
 WORKDIR /app
 COPY webapi.appsettings.json /app/web.appsettings.json
+COPY webapi.appsettings.production.json /app/web.appsettings.production.json
 
 RUN apk add unzip dos2unix bash && \
     wget -O /app/WebApi.zip https://www.myget.org/F/ed-fi/api/v2/package/EdFi.Suite3.Ods.WebApi/${VERSION} && \
@@ -18,6 +19,7 @@ RUN apk add unzip dos2unix bash && \
     dos2unix /app/*.json && \
     rm -f /app/*.exe && \
     rm -f /app/[Content_Types] && \
+    mv /app/web.appsettings.production.json /app/appsettings.production.json && \
     mv /app/web.appsettings.json /app/appsettings.json
 
 EXPOSE "80"
