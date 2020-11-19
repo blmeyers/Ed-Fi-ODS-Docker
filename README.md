@@ -88,5 +88,8 @@ To get more help about particular command > docker-compose <command> --helpEx: d
 Full documentation is available on Docker's [website](https://docs.docker.com/compose/)
 
 ## .env file 
-In .env file we can pass the environment variables for example usernames, passwords, below is the command to run the compose file with the envrironment file
-Ex: docker-compose --env-file .env -f <docker-compose-filename> up 
+Compose supports declaring default environment variables in an environment file named .env placed in the folder where the docker-compose command is executed (current working directory).
+For example we can pass env variables like, tag, username, password
+
+Following command can be used with docker-compose 
+Ex: docker-compose --env-file .env -f (docker-compose-filename) up 
